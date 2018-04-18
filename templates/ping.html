@@ -1,0 +1,29 @@
+
+<!doctype html>
+<html>
+	<script>
+	import Chart from 'chart.js';</script>
+<head>
+	<title>Line Chart</title>
+	<script src="static/Chart.bundle.js"></script>
+	<script src="static/Chart.js"></script>
+
+	<style>
+	canvas{
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+	</style>
+</head>
+
+<body>
+  <canvas id="line-chart"></canvas>
+  <div id="labels_div">{{ labels }}</div>
+  <div id="data_div">{{ values }}</div>
+	<script src="static/line-chart.js" type="module"> </script>
+
+	<script src=static/line.js>	</script>
+</body>
+
+</html>
