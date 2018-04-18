@@ -13,7 +13,7 @@ console.log(donnee)
 new Chart(document.getElementById("line-chart"), {
     type: 'line',
     data: {
-        labels: labels,
+        labels: "Ping (ms)",
         datasets: [{
             label :labels,
             data: donnee,
@@ -39,7 +39,7 @@ new Chart(document.getElementById("line-chart"), {
     options: {
         title: {
             display: true,
-            text: 'World population per region (in millions)'
+            text: 'Latency between the server and google.fr'
         }
     }
 });
