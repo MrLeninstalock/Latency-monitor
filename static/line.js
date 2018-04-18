@@ -1,3 +1,5 @@
+document.getElementById("labels_div").style.visibility = "hidden";
+document.getElementById("data_div").style.visibility = "hidden";
 
 labels = []
 donnee = []

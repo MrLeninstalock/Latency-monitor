@@ -18,12 +18,15 @@ def call_proc(cmd):
     return output
 
 def extract_latency(output):
-    latency = re.search(r'time=(.*?) ms', output).group(1)
-    return latency
+    latency = re.search(r'time=(.*?) ms', output)
+    if latency:
+	return latency.group(1)
+    else:
+	return 999
 
 def ecrire_fichier(latence, time):
     fichier = open('resultat_ping', 'a')
-    fichier.write(str(time.day)+'/'+str(time.month)+'/'+str(time.year)+' - '+str(time.hour)+'h'+str(time.minute)+'mn'+str(time.second)+'s - ')
+    fichier.write(str(time.day)+'/'+str(time.month)+'/'+str(time.year)+' - '+str((time.hour)+2)+'h'+str(time.minute)+'mn'+str(time.second)+'s - ')
     fichier.write(str(latence)+' - \n')
     fichier.close()
 
