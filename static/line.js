@@ -1,5 +1,6 @@
-document.getElementById("labels_div").style.visibility = "hidden";
 document.getElementById("data_div").style.visibility = "hidden";
+document.getElementById("labels_div").style.visibility = "hidden";
+
 
 labels = []
 donnee = []
@@ -13,25 +14,15 @@ console.log(donnee)
 new Chart(document.getElementById("line-chart"), {
     type: 'line',
     data: {
-        labels: "Ping (ms)",
+        labels: labels,
         datasets: [{
-            label :labels,
+            label :'Latency (ms)',
             data: donnee,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 99, 132, 0.2)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255,99,132,1)'
             ],
             borderWidth: 1
         }]
@@ -39,7 +30,7 @@ new Chart(document.getElementById("line-chart"), {
     options: {
         title: {
             display: true,
-            text: 'Latency between the server and google.fr'
+            text: 'Latency between you and Google.fr'
         }
     }
 });
