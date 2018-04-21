@@ -6,6 +6,12 @@ I was having lag problem in my parent's house. It was really sudden and won't la
 
 Moreover I was starting an internship in which I have to use flask and maybe Chart.js, so it was like an introduction to my internship.
 
+## How to install
+
+`pip install -r requirements`
+`python ping.py` will start pinging google
+`python main.py` will launch the web interface
+
 ## How it works
 
 Ping.py juste ping google.fr continuously and print the result in resultat_ping.
@@ -15,4 +21,6 @@ When you load the localhost:5000/ping page, the server will just load files's va
 
 - Get rif of the data_div and labels_div.
 - Make a .conf file
+- Package it
+- Make it fully Windows compatible
 
