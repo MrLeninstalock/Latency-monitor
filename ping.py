@@ -3,12 +3,17 @@ import subprocess
 import sys
 import time
 import os
+import platform
 from datetime import datetime
 
 TRIES = 10000
 
 def ping(host):
-    cmd = "ping -c 1 %s" % host
+    os = platform.system()
+    if os == "Linux":
+        cmd = "ping -c 1 %s" % host
+    elif os == "Windows":
+        cmd = "ping -n 1 %s" % host
     output = call_proc(cmd)
     ecrire_fichier(extract_latency(output), datetime.now())
 
@@ -18,7 +23,10 @@ def call_proc(cmd):
     return output
 
 def extract_latency(output):
-    latency = re.search(r'time=(.*?) ms', output)
+    if platform.system() == "Linux":
+        latency = re.search(r'time=(.*?) ms', output)
+    elif platform.system() == "Windows":
+        latency = re.search(r'Minimum = (.*?)ms', output)
     if latency:
 	return latency.group(1)
     else:
