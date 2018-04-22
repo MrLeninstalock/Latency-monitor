@@ -1,0 +1,4 @@
+[Ping]
+Tries: 10000
+Destination: google.fr
+Outfile: resultat_ping
