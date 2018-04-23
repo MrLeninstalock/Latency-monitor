@@ -1,15 +1,8 @@
-document.getElementById("data_div").style.visibility = "hidden";
-document.getElementById("labels_div").style.visibility = "hidden";
-
-
 labels = []
 donnee = []
 
 recupData()
 recupLabels()
-
-console.log(labels)
-console.log(donnee)
 
 new Chart(document.getElementById("line-chart"), {
     type: 'line',
@@ -46,7 +39,7 @@ new Chart(document.getElementById("line-chart"), {
 });
 
 function recupData() {
-    data = document.getElementById("data_div").innerHTML
+    data = he.decode(data_var)
     tab_data = data.split(',')
     for (var index in tab_data) {
         tmp = tab_data[index].replace("'", "")
@@ -58,14 +51,13 @@ function recupData() {
 }
 
 function recupLabels() {
-    label = document.getElementById("labels_div").innerHTML
+    label = he.decode(labels_var)
     tab_label = label.split('\',')
     for (var index in tab_label) {
         tmp = tab_label[index].replace("'", "")
         tmp = tmp.replace("[", "")
         tmp = tmp.replace("]", "")
         tmp = tmp.replace("'", "")
-        console.log(tmp)
         labels.push(tmp)
      }
 }

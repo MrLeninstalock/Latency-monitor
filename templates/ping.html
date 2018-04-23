@@ -7,6 +7,7 @@
 	<script src="static/moment-with-locales.js"></script>
 	<script src="static/Chart.bundle.js"></script>
 	<script src="static/Chart.js"></script>
+	<script src="static/he.js"></script>
 
 
 	<style>
@@ -21,11 +22,15 @@
 <body>
   <div id="titre"><h1><center>Latency between you and Google.fr</center></h1></div>
   <canvas id="line-chart"></canvas>
-  <div id="labels_div">{{ labels }}</div>
-  <div id="data_div">{{ values }}</div>
 	<script src="static/line-chart.js" type="module"> </script>
-
+	<script>
+		var labels_var = '{{ labels }}';
+		var data_var = '{{ values }}';
+	</script>
 	<script src=static/line.js>	</script>
+
+	
+
 </body>
 
 </html>
