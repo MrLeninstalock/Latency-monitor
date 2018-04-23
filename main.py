@@ -33,10 +33,9 @@ def effectuer_le_ping():
     tab = data.split('\n')
     for line in tab:
         if line is not '':
-            donnee = line.split('-')
-            latence = donnee[2]
-            values.append(latence)
-            labels.append(donnee[1])
+            donnee = line.split('||')
+            values.append(donnee[1])
+            labels.append(donnee[0])
     return render_template('ping.html', values=values, labels=labels)
 
 if __name__ == '__main__':

@@ -28,6 +28,15 @@ new Chart(document.getElementById("line-chart"), {
         }]
     },
     options: {
+        scales: {
+            xAxes: [{
+                type: 'time',
+                distribution: 'linear',
+                displayFormats: {
+                    quarter: 'MMM YYYY'
+                }
+            }]
+        },
         title: {
             display: false,
             text: 'Latency between you and Google.fr'
@@ -39,22 +48,23 @@ function recupData() {
     data = document.getElementById("data_div").innerHTML
     tab_data = data.split(',')
     for (var index in tab_data) {
-        tmp = tab_data[index].replace("' ", "")
+        tmp = tab_data[index].replace("'", "")
         tmp = tmp.replace("[", "")
         tmp = tmp.replace("]", "")
-        tmp = tmp.replace(" '", "")
+        tmp = tmp.replace("'", "")
         donnee.push(tmp)
     }
 }
 
 function recupLabels() {
     label = document.getElementById("labels_div").innerHTML
-    tab_label = label.split(',')
+    tab_label = label.split('\',')
     for (var index in tab_label) {
-        tmp = tab_label[index].replace("' ", "")
+        tmp = tab_label[index].replace("'", "")
         tmp = tmp.replace("[", "")
         tmp = tmp.replace("]", "")
-        tmp = tmp.replace(" '", "")
+        tmp = tmp.replace("'", "")
+        console.log(tmp)
         labels.push(tmp)
      }
 }

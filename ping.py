@@ -6,6 +6,8 @@ import os
 import platform
 from datetime import datetime
 import ConfigParser
+import time
+from email import utils
 
 TRIES = 10000
 Config = ConfigParser.ConfigParser()
@@ -35,10 +37,12 @@ def extract_latency(output):
     else:
 	return 999
 
-def ecrire_fichier(latence, time):
+def ecrire_fichier(latence, timing):
     fichier = open(Config.get('Ping', 'Outfile'), 'a')
-    fichier.write(str(time.day)+'/'+str(time.month)+'/'+str(time.year)+' - '+str((time.hour)+2)+'h'+str(time.minute)+'mn'+str(time.second)+'s - ')
-    fichier.write(str(latence)+' - \n')
+    nowtuple = timing.timetuple()
+    nowtimestamp = time.mktime(nowtuple)
+    fichier.write(utils.formatdate(nowtimestamp)+'||')
+    fichier.write(str(latence)+'||\n')
     fichier.close()
 
 if __name__ == '__main__':
