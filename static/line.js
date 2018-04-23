@@ -19,17 +19,17 @@ new Chart(document.getElementById("line-chart"), {
             label :'Latency (ms)',
             data: donnee,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)'
+                'rgba(6, 0, 173, 0.2)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)'
+                'rgba(6, 0, 173, 1)'
             ],
             borderWidth: 1
         }]
     },
     options: {
         title: {
-            display: true,
+            display: false,
             text: 'Latency between you and Google.fr'
         }
     }
