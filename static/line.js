@@ -28,6 +28,7 @@ new Chart(document.getElementById("line-chart"), {
         }]
     },
     options: {
+        responsive: true,
         scales: {
             xAxes: [{
                 type: 'time',
