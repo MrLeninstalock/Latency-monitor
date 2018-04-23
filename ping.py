@@ -5,8 +5,11 @@ import time
 import os
 import platform
 from datetime import datetime
+import ConfigParser
 
 TRIES = 10000
+Config = ConfigParser.ConfigParser()
+Config.read("CONFIGURATION")
 
 def ping(host):
     os = platform.system()
@@ -33,12 +36,12 @@ def extract_latency(output):
 	return 999
 
 def ecrire_fichier(latence, time):
-    fichier = open('resultat_ping', 'a')
+    fichier = open(Config.get('Ping', 'Outfile'), 'a')
     fichier.write(str(time.day)+'/'+str(time.month)+'/'+str(time.year)+' - '+str((time.hour)+2)+'h'+str(time.minute)+'mn'+str(time.second)+'s - ')
     fichier.write(str(latence)+' - \n')
     fichier.close()
 
 if __name__ == '__main__':
-    for i in range(TRIES):
-        ping("google.fr")
+    for i in range(int(Config.get('Ping', 'Tries'))):
+        ping(Config.get('Ping', 'Destination'))
         time.sleep(1)

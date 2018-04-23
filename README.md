@@ -20,7 +20,6 @@ When you load the localhost:5000/ping page, the server will just load files's va
 ## TO DO
 
 - Get rif of the data_div and labels_div.
-- Make a .conf file
 - Package it
 - Make it fully Windows compatible
 
