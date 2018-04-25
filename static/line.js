@@ -1,42 +1,55 @@
 labels = []
 donnee = []
 
-recupData()
-recupLabels()
+drawLine()
 
-new Chart(document.getElementById("line-chart"), {
-    type: 'line',
-    data: {
-        labels: labels,
-        datasets: [{
-            label :'Latency (ms)',
-            data: donnee,
-            backgroundColor: [
-                'rgba(6, 0, 173, 0.2)'
-            ],
-            borderColor: [
-                'rgba(6, 0, 173, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        scales: {
-            xAxes: [{
-                type: 'time',
-                distribution: 'linear',
-                displayFormats: {
-                    quarter: 'MMM YYYY'
-                }
+function addData(chart, label, data) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
+}
+
+function drawLine() {
+
+    recupData()
+    recupLabels()
+
+    new Chart(document.getElementById("line-chart"), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label :'Latency (ms)',
+                data: donnee,
+                backgroundColor: [
+                    'rgba(6, 0, 173, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(6, 0, 173, 1)'
+                ],
+                borderWidth: 1
             }]
         },
-        title: {
-            display: false,
-            text: 'Latency between you and Google.fr'
+        options: {
+            responsive: true,
+            scales: {
+                xAxes: [{
+                    type: 'time',
+                    distribution: 'linear',
+                    displayFormats: {
+                        millisecond: 'h:mm:ss.SSS a'
+                    }
+                }]
+            },
+            title: {
+                display: false,
+                text: 'Latency between you and Google.fr'
+            }
         }
-    }
-});
+    });
+}
 
 function recupData() {
     data = he.decode(data_var)
