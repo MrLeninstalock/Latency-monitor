@@ -46,6 +46,6 @@ def ecrire_fichier(latence, timing):
     fichier.close()
 
 if __name__ == '__main__':
-    for i in range(int(Config.get('Ping', 'Tries'))):
+    while True:
         ping(Config.get('Ping', 'Destination'))
         time.sleep(1)

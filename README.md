@@ -9,7 +9,9 @@ Moreover I was starting an internship in which I have to use flask and maybe Cha
 ## How to install
 
 `pip install -r requirements`
+
 `python ping.py` will start pinging google
+
 `python main.py` will launch the web interface
 
 ## How it works
@@ -17,9 +19,12 @@ Moreover I was starting an internship in which I have to use flask and maybe Cha
 Ping.py juste ping google.fr continuously and print the result in resultat_ping.
 When you load the localhost:5000/ping page, the server will just load files's value in two divs, so our Chart.js will be able to read it.
 
+You can zoom on the graph, but it can be very laggy due to the massive amout of point
+
 ## TO DO
 
 - Get rif of the data_div and labels_div.
 - Package it
 - Make it fully Windows compatible
+- Let the user configure interval between pings
 
