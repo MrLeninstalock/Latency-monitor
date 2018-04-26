@@ -23,7 +23,7 @@ You can zoom on the graph, but it can be very laggy due to the massive amout of 
 
 ## TO DO
 
-- Get rif of the data_div and labels_div.
+- Get rid of the data_div and labels_div.
 - Package it
 - Make it fully Windows compatible
 
