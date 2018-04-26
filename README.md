@@ -26,5 +26,4 @@ You can zoom on the graph, but it can be very laggy due to the massive amout of 
 - Get rif of the data_div and labels_div.
 - Package it
 - Make it fully Windows compatible
-- Let the user configure interval between pings
 
