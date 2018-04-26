@@ -1,3 +1,4 @@
 [Ping]
 Destination: google.fr
 Outfile: resultat_ping
+Interval: 1

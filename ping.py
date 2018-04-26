@@ -48,4 +48,4 @@ def ecrire_fichier(latence, timing):
 if __name__ == '__main__':
     while True:
         ping(Config.get('Ping', 'Destination'))
-        time.sleep(1)
+        time.sleep(int(Config.get('Ping', 'Interval'))) #Interval is in second
