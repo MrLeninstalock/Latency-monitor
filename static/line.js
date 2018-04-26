@@ -1,7 +1,7 @@
 labels = []
 donnee = []
 
-drawLine()
+
 
 function addData(chart, label, data) {
     chart.data.labels.push(label);
@@ -16,7 +16,9 @@ function drawLine() {
     recupData()
     recupLabels()
 
-    new Chart(document.getElementById("line-chart"), {
+    
+
+    window.myLine = new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
             labels: labels,
@@ -46,9 +48,31 @@ function drawLine() {
             title: {
                 display: false,
                 text: 'Latency between you and Google.fr'
+            },
+            pan: {
+                // Boolean to enable panning
+                enabled: true,
+    
+                // Panning directions. Remove the appropriate direction to disable 
+                // Eg. 'y' would only allow panning in the y direction
+                mode: 'xy'
+            },
+    
+            // Container for zoom options
+            zoom: {
+                // Boolean to enable zooming
+                enabled: true,
+    
+                // Zooming directions. Remove the appropriate direction to disable 
+                // Eg. 'y' would only allow zooming in the y direction
+                mode: 'xy',
             }
         }
     });
+}
+
+function resetZoom() {
+    window.myLine.resetZoom()
 }
 
 function recupData() {

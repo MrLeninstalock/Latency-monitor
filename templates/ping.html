@@ -8,7 +8,9 @@
 	<script src="static/Chart.bundle.js"></script>
 	<script src="static/Chart.js"></script>
 	<script src="static/he.js"></script>
-
+	<script src="static/chartjs-plugin-zoom.js"></script>
+	<script src="static/line-chart.js" type="module"> </script>
+	<script type="text/javascript" src="static/line.js"></script>
 
 	<style>
 	canvas{
@@ -20,15 +22,18 @@
 </head>
 
 <body>
-  <div id="titre"><h1><center>Latency between you and Google.fr</center></h1></div>
-  <canvas id="line-chart"></canvas>
-	<script src="static/line-chart.js" type="module"> </script>
-	<script>
+	<div id="titre"><h1><center>Latency between you and Google.fr</center></h1></div>
+	<canvas id="line-chart"></canvas>
+	<script type="text/javascript">
 		var labels_var = '{{ labels }}';
 		var data_var = '{{ values }}';
+		drawLine()
 	</script>
-	<script src=static/line.js>		
-	</script>
+	
+	<button onclick="resetZoom()">Reset Zoom</button>
+	
+  	
+
 
 	
 
