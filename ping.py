@@ -20,6 +20,7 @@ def ping(host):
     elif os == "Windows":
         cmd = "ping -n 1 %s" % host
     output = call_proc(cmd)
+    # Maybe put the datatime.now() before the ping call ?
     ecrire_fichier(extract_latency(output), datetime.now())
 
 def call_proc(cmd):
@@ -38,10 +39,20 @@ def extract_latency(output):
 	return 999
 
 def ecrire_fichier(latence, timing):
-    fichier = open(Config.get('Ping', 'Outfile'), 'a')
-    nowtuple = timing.timetuple()
+    # Filename is just the date, in order to get one log file a day
+    filename = "logs/" + time.strftime("%d-%m-%Y")+'.log'
+    if not os.path.exists(os.path.dirname(filename)):
+        try :
+            os.makedirs(os.path.dirname(filename))
+        except OSError as exc:
+            if exc.errno != errno.EEXIST:
+                raise
+    fichier = open(filename, 'a+')
+    timestamp = str(timing.hour)+':'+str(timing.second)+':'+str(timing.microsecond/1000)
+    fichier.write(timestamp+'||')
+    """ nowtuple = timing.timetuple()
     nowtimestamp = time.mktime(nowtuple)
-    fichier.write(utils.formatdate(nowtimestamp)+'||')
+    fichier.write(utils.formatdate(nowtimestamp)+'||') """
     fichier.write(str(latence)+'||\n')
     fichier.close()
 
