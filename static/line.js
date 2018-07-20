@@ -1,7 +1,7 @@
-labels = []
-donnee = []
+labels = [];
+donnee = [];
 
-
+drawLine();
 
 function addData(chart, label, data) {
     chart.data.labels.push(label);
@@ -13,8 +13,8 @@ function addData(chart, label, data) {
 
 function drawLine() {
 
-    recupData()
-    recupLabels()
+    recupData();
+    recupLabels();
 
     
 
@@ -72,29 +72,29 @@ function drawLine() {
 }
 
 function resetZoom() {
-    window.myLine.resetZoom()
+    window.myLine.resetZoom();
 }
 
 function recupData() {
-    data = he.decode(data_var)
-    tab_data = data.split(',')
+    data = he.decode(data_var);
+    tab_data = data.split(',');
     for (var index in tab_data) {
-        tmp = tab_data[index].replace("'", "")
-        tmp = tmp.replace("[", "")
-        tmp = tmp.replace("]", "")
-        tmp = tmp.replace("'", "")
-        donnee.push(tmp)
+        tmp = tab_data[index].replace("'", "");
+        tmp = tmp.replace("[", "");
+        tmp = tmp.replace("]", "");
+        tmp = tmp.replace("'", "");
+        donnee.push(tmp);
     }
 }
 
 function recupLabels() {
-    label = he.decode(labels_var)
-    tab_label = label.split('\',')
+    label = he.decode(labels_var);
+    tab_label = label.split('\',');
     for (var index in tab_label) {
-        tmp = tab_label[index].replace("'", "")
-        tmp = tmp.replace("[", "")
-        tmp = tmp.replace("]", "")
-        tmp = tmp.replace("'", "")
-        labels.push(tmp)
+        tmp = tab_label[index].replace("'", "");
+        tmp = tmp.replace("[", "");
+        tmp = tmp.replace("]", "");
+        tmp = tmp.replace("'", "");
+        labels.push(tmp);
      }
 }

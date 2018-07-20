@@ -10,6 +10,7 @@ import re
 import subprocess
 import sys
 import time
+import os
 
 
 app = Flask(__name__)
@@ -22,12 +23,12 @@ def dire_coucou():
 def return_ping():
     return str(10)
 
-@app.route('/ping')
-def effectuer_le_ping():
+@app.route('/ping/<date>')
+def effectuer_le_ping(date):
     #latence = ping("google.fr")
     labels = []
     values = []
-    fichier = open('resultat_ping', 'r')
+    fichier = open(os.path.join("logs", date + ".log"), 'r')
     data = fichier.read()
     fichier.close()
     tab = data.split('\n')
